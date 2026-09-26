@@ -142,7 +142,7 @@ function Onboarding() {
     opportunityTypes: [],
   });
 
-  const current = STEPS[step];
+  const current = STEPS[step]!;
   const selected = current.get(profile);
   const isLast = step === STEPS.length - 1;
   const canContinue = selected.length > 0;

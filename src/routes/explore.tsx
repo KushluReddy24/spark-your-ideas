@@ -19,11 +19,11 @@ interface ExploreSearch {
 
 export const Route = createFileRoute("/explore")({
   validateSearch: (search: Record<string, unknown>): ExploreSearch => ({
-    q: typeof search.q === "string" ? search.q : "",
-    category: typeof search.category === "string" ? search.category : "",
-    stream: typeof search.stream === "string" ? search.stream : "",
-    type: typeof search.type === "string" ? search.type : "",
-    status: typeof search.status === "string" ? search.status : "",
+    q: typeof search["q"] === "string" ? search["q"] : "",
+    category: typeof search["category"] === "string" ? search["category"] : "",
+    stream: typeof search["stream"] === "string" ? search["stream"] : "",
+    type: typeof search["type"] === "string" ? search["type"] : "",
+    status: typeof search["status"] === "string" ? search["status"] : "",
   }),
   head: () => ({
     meta: [
