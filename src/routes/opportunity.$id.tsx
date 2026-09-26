@@ -32,7 +32,7 @@ export const Route = createFileRoute("/opportunity/$id")({
           Opportunity not found
         </h1>
         <Link
-          to="/explore"
+          to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
           className="mt-4 inline-block rounded-xl bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground"
         >
           Back to explore
@@ -80,7 +80,7 @@ function OpportunityDetail() {
 
         <div className="mx-auto mt-10 max-w-3xl">
           <Link
-            to="/explore"
+            to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
             className="text-[12px] text-muted-foreground transition-colors hover:text-foreground"
           >
             ← Back to explore

@@ -58,7 +58,7 @@ function Landing() {
                   Build my opportunity map →
                 </Link>
                 <Link
-                  to="/explore"
+                  to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
                   className="rounded-xl border border-border bg-secondary px-6 py-3 text-[14px] font-medium text-foreground transition-colors hover:bg-muted"
                 >
                   Explore opportunities

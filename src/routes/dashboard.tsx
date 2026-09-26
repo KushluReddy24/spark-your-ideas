@@ -73,7 +73,7 @@ function Dashboard() {
             </div>
             <div className="flex gap-3">
               <Link
-                to="/explore"
+                to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
                 className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-5 py-2.5 text-[13px] font-semibold text-primary-foreground"
               >
                 Explore all
@@ -198,7 +198,7 @@ function Dashboard() {
               Explore more
             </h2>
             <Link
-              to="/explore"
+              to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
               className="text-[12px] text-muted-foreground transition-colors hover:text-foreground"
             >
               View all {OPPORTUNITIES.length} →
