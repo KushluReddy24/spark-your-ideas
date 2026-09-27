@@ -2,10 +2,10 @@ import { STAGE_LABELS, type Stage } from "@/data/opportunities";
 import { cn } from "@/lib/utils";
 
 const STYLES: Record<Stage, string> = {
-  explore: "border-primary/40 bg-primary/15 text-primary",
+  explore: "border-accent/30 bg-accent/10 text-accent",
   prepare: "border-amber/40 bg-amber/10 text-amber",
   apply: "border-rose/40 bg-rose/10 text-rose",
-  plan: "border-accent/40 bg-accent/10 text-accent",
+  plan: "border-primary/40 bg-primary/20 text-foreground",
 };
 
 export function StageBadge({
@@ -18,7 +18,7 @@ export function StageBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-medium",
+        "inline-flex items-center gap-1.5 rounded border px-2 py-1 text-[10px] font-bold",
         STYLES[stage],
         className,
       )}

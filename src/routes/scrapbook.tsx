@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { SiteHeader } from "@/components/SiteHeader";
 import { EntryCard } from "@/components/EntryCard";
+import { Button } from "@/components/ui/button";
 import {
   ENTRY_CATEGORIES,
   addEntry,
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/scrapbook")({
 });
 
 const inputCls =
-  "glass w-full rounded-xl bg-transparent px-4 py-2.5 text-[13px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary/50";
+  "w-full border border-border bg-card rounded-md bg-transparent px-4 py-2.5 text-[13px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary/50";
 
 function Scrapbook() {
   const entries = useEntries();
@@ -103,21 +104,21 @@ function Scrapbook() {
           <div className="flex gap-3">
             <Link
               to="/showcase"
-              className="rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
+              className="rounded-md border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
             >
               View showcase
             </Link>
-            <button
+            <Button
               onClick={() => setShowForm((s) => !s)}
-              className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-5 py-2.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-md bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
             >
               {showForm ? "Cancel" : "+ Add a memory"}
-            </button>
+            </Button>
           </div>
         </div>
 
         {showForm && (
-          <div className="glass animate-rise mb-8 rounded-[24px] p-7">
+          <div className="animate-rise mb-8 rounded-lg border border-border bg-card p-7">
             <h2 className="font-display text-[18px] font-semibold">
               New memory
             </h2>
@@ -184,13 +185,13 @@ function Scrapbook() {
               />
             </div>
             <div className="mt-5 flex justify-end">
-              <button
+              <Button
                 onClick={submit}
                 disabled={!canSave}
-                className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-6 py-2.5 text-[13px] font-semibold text-primary-foreground disabled:opacity-40"
+                className="rounded-md bg-primary px-6 py-2.5 text-[13px] font-semibold text-primary-foreground disabled:opacity-40"
               >
                 Save memory
-              </button>
+              </Button>
             </div>
           </div>
         )}
@@ -202,21 +203,21 @@ function Scrapbook() {
               <EntryCard key={e.id} entry={e} />
             ))}
             {entries.length === 0 && (
-              <div className="glass col-span-full rounded-2xl p-10 text-center text-[13px] text-muted-foreground">
+              <div className="col-span-full rounded-lg border border-border bg-card p-10 text-center text-[13px] text-muted-foreground">
                 No memories yet — add your first one.
               </div>
             )}
           </div>
 
           {/* Journey timeline */}
-          <aside className="glass h-fit rounded-[24px] p-6 lg:sticky lg:top-24">
+          <aside className="h-fit border-t-4 border-primary py-6 lg:sticky lg:top-24">
             <h2 className="font-display text-[16px] font-semibold">
               Your journey
             </h2>
             <div className="mt-5 space-y-6">
               {timeline.map(([month, items]) => (
                 <div key={month}>
-                  <p className="text-[11px] font-medium tracking-[0.15em] text-primary uppercase">
+                  <p className="text-[11px] font-medium tracking-[0.15em] text-accent uppercase">
                     {month}
                   </p>
                   <div className="mt-2 space-y-2 border-l border-border pl-4">

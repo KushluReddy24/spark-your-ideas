@@ -1,5 +1,7 @@
 import type { ScrapbookEntry } from "@/data/scrapbook";
 import { removeEntry } from "@/data/scrapbook";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 
 const CATEGORY_DOT: Record<string, string> = {
   Academics: "bg-primary",
@@ -19,7 +21,7 @@ export function EntryCard({ entry }: { entry: ScrapbookEntry }) {
   });
 
   return (
-    <article className="glass group flex flex-col rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-1">
+    <article className="group flex flex-col rounded-lg border border-border bg-card p-5 transition-[border-color,box-shadow] duration-200 hover:border-accent hover:shadow-md">
       <div className="flex items-center justify-between gap-3">
         <span className="flex items-center gap-2 text-[11px] font-medium text-muted-foreground">
           <span
@@ -27,13 +29,16 @@ export function EntryCard({ entry }: { entry: ScrapbookEntry }) {
           />
           {entry.category} · {date}
         </span>
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={() => removeEntry(entry.id)}
-          className="text-[11px] text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 hover:text-rose"
+          className="shrink-0 text-muted-foreground hover:text-rose"
           aria-label="Delete entry"
+          title="Delete entry"
         >
-          Remove
-        </button>
+          <Trash2 className="h-4 w-4" />
+        </Button>
       </div>
       <h3 className="font-display mt-3 text-[17px] font-semibold text-foreground">
         {entry.title}

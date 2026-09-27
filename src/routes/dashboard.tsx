@@ -8,7 +8,7 @@ import {
   STAGE_LABELS,
   type Stage,
 } from "@/data/opportunities";
-import { loadProfile, useSaved } from "@/lib/profile";
+import { useProfile, useSaved } from "@/lib/profile";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -41,7 +41,7 @@ const STAGE_ACCENT: Record<Stage, string> = {
 };
 
 function Dashboard() {
-  const profile = loadProfile();
+  const profile = useProfile();
   const saved = useSaved();
   const savedOpps = OPPORTUNITIES.filter((o) => saved.includes(o.id));
 
@@ -55,10 +55,10 @@ function Dashboard() {
         <SiteHeader />
 
         {/* Greeting */}
-        <section className="glass-strong animate-rise mt-8 rounded-[28px] p-8">
+        <section className="animate-rise mt-8 border-b border-border pb-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-[12px] font-medium text-accent">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-accent/30 bg-accent/10 px-3 py-1.5 text-[12px] font-medium text-accent">
                 <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
                 Your map is live
               </div>
@@ -74,13 +74,13 @@ function Dashboard() {
             <div className="flex gap-3">
               <Link
                 to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
-                className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-5 py-2.5 text-[13px] font-semibold text-primary-foreground"
+                className="rounded-md bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground"
               >
                 Explore all
               </Link>
               <Link
                 to="/scrapbook"
-                className="rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground"
+                className="rounded-md border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground"
               >
                 My scrapbook
               </Link>
@@ -93,7 +93,7 @@ function Dashboard() {
           {STAGE_ORDER.map((stage, i) => (
             <div
               key={stage}
-              className={`glass animate-rise rounded-[20px] border-t-4 p-5 ${STAGE_ACCENT[stage]}`}
+              className={`animate-rise rounded-lg border border-border border-t-4 bg-card p-5 ${STAGE_ACCENT[stage]}`}
               style={{ animationDelay: `${i * 70}ms` }}
             >
               <p className="text-[11px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
@@ -108,7 +108,7 @@ function Dashboard() {
               </p>
               <div className="mt-4 space-y-3">
                 {byStage(stage).length === 0 && (
-                  <p className="rounded-xl bg-secondary p-3 text-[12px] text-muted-foreground">
+                  <p className="rounded-md bg-secondary p-3 text-[12px] text-muted-foreground">
                     Nothing here yet — check back as we add more.
                   </p>
                 )}
@@ -117,7 +117,7 @@ function Dashboard() {
                     key={o.id}
                     to="/opportunity/$id"
                     params={{ id: o.id }}
-                    className="block rounded-xl bg-secondary p-3 transition-colors hover:bg-muted"
+                    className="block rounded-md bg-secondary p-3 transition-colors hover:bg-muted"
                   >
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-[13px] font-semibold text-foreground">
@@ -137,7 +137,7 @@ function Dashboard() {
 
         {/* Saved + Prepare now */}
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div className="glass animate-rise rounded-[24px] p-6 lg:col-span-2 [animation-delay:120ms]">
+          <div className="animate-rise lg:col-span-2 [animation-delay:120ms]">
             <div className="flex items-center justify-between">
               <h2 className="font-display text-[16px] font-semibold">
                 Prepare now
@@ -155,18 +155,18 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="glass animate-rise rounded-[24px] p-6 [animation-delay:200ms]">
+          <div className="animate-rise border-t border-border pt-6 [animation-delay:200ms]">
             <div className="flex items-center justify-between">
               <h2 className="font-display text-[16px] font-semibold">
                 Saved opportunities
               </h2>
-              <span className="rounded-full bg-primary/20 px-2.5 py-0.5 text-[11px] font-medium text-primary">
+              <span className="rounded-md bg-primary/20 px-2.5 py-0.5 text-[11px] font-medium text-foreground">
                 {savedOpps.length} saved
               </span>
             </div>
             <div className="mt-5 space-y-3">
               {savedOpps.length === 0 && (
-                <p className="rounded-xl bg-secondary p-4 text-[12px] leading-relaxed text-muted-foreground">
+                <p className="rounded-md bg-secondary p-4 text-[12px] leading-relaxed text-muted-foreground">
                   Nothing saved yet. Tap "Save" on any opportunity to pin it
                   here.
                 </p>
@@ -176,7 +176,7 @@ function Dashboard() {
                   key={o.id}
                   to="/opportunity/$id"
                   params={{ id: o.id }}
-                  className="block rounded-xl bg-secondary p-4 transition-colors hover:bg-muted"
+                  className="block rounded-md bg-secondary p-4 transition-colors hover:bg-muted"
                 >
                   <div className="flex items-center gap-2 text-[13px] font-medium text-foreground">
                     <span className="h-2 w-2 rounded-full bg-accent" />
@@ -192,7 +192,7 @@ function Dashboard() {
         </div>
 
         {/* Explore more */}
-        <section className="glass animate-rise mt-6 rounded-[24px] p-6 [animation-delay:280ms]">
+        <section className="animate-rise mt-6 border-t border-border pt-6 [animation-delay:280ms]">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-[16px] font-semibold">
               Explore more
