@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StageBadge } from "@/components/StageBadge";
+import { Button } from "@/components/ui/button";
 import { fieldOrUnverified, getOpportunity } from "@/data/opportunities";
 import { toggleSaved, useSaved } from "@/lib/profile";
 
@@ -105,7 +106,7 @@ function OpportunityDetail() {
                   {o.summary}
                 </p>
               </div>
-              <button
+              <Button
                 onClick={() => toggleSaved(o.id)}
                 className={`rounded-md px-5 py-2.5 text-[13px] font-semibold transition-transform hover:-translate-y-0.5 ${
                   isSaved
@@ -114,7 +115,7 @@ function OpportunityDetail() {
                 }`}
               >
                 {isSaved ? "Saved ✓" : "Save opportunity"}
-              </button>
+              </Button>
             </div>
 
             {!o.verified && (

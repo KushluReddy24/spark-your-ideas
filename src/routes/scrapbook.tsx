@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { SiteHeader } from "@/components/SiteHeader";
 import { EntryCard } from "@/components/EntryCard";
+import { Button } from "@/components/ui/button";
 import {
   ENTRY_CATEGORIES,
   addEntry,
@@ -107,12 +108,12 @@ function Scrapbook() {
             >
               View showcase
             </Link>
-            <button
+            <Button
               onClick={() => setShowForm((s) => !s)}
               className="rounded-md bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
             >
               {showForm ? "Cancel" : "+ Add a memory"}
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -184,13 +185,13 @@ function Scrapbook() {
               />
             </div>
             <div className="mt-5 flex justify-end">
-              <button
+              <Button
                 onClick={submit}
                 disabled={!canSave}
                 className="rounded-md bg-primary px-6 py-2.5 text-[13px] font-semibold text-primary-foreground disabled:opacity-40"
               >
                 Save memory
-              </button>
+              </Button>
             </div>
           </div>
         )}
