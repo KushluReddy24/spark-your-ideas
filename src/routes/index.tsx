@@ -34,7 +34,7 @@ function Landing() {
         <SiteHeader />
 
         {/* Hero */}
-        <section className="glass-strong animate-rise mt-8 overflow-hidden rounded-[28px] p-8 md:p-10">
+        <section className="glass-strong animate-rise mt-8 overflow-hidden rounded-lg p-8 md:p-10">
           <div className="flex flex-wrap items-end justify-between gap-10">
             <div className="max-w-[560px]">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-[12px] font-medium text-accent">
@@ -53,13 +53,13 @@ function Landing() {
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link
                   to="/onboarding"
-                  className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-6 py-3 text-[14px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+                  className="rounded-md bg-primary px-6 py-3 text-[14px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
                 >
                   Build my opportunity map →
                 </Link>
                 <Link
                   to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
-                  className="rounded-xl border border-border bg-secondary px-6 py-3 text-[14px] font-medium text-foreground transition-colors hover:bg-muted"
+                  className="rounded-md border border-border bg-secondary px-6 py-3 text-[14px] font-medium text-foreground transition-colors hover:bg-muted"
                 >
                   Explore opportunities
                 </Link>
@@ -71,7 +71,7 @@ function Landing() {
                 <StageBadge stage="plan" />
               </div>
             </div>
-            <div className="w-full max-w-[380px] overflow-hidden rounded-2xl border border-border bg-secondary">
+            <div className="w-full max-w-[380px] overflow-hidden rounded-lg border border-border bg-secondary">
               <img
                 src={heroRadar}
                 alt="Opportunity radar visualization"
@@ -101,8 +101,8 @@ function Landing() {
 
         {/* Two pillars */}
         <section className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="glass animate-rise rounded-[24px] p-7 [animation-delay:80ms]">
-            <p className="text-[12px] font-medium tracking-[0.15em] text-primary uppercase">
+          <div className="glass animate-rise rounded-lg p-7 [animation-delay:80ms]">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-accent uppercase">
               Pillar 01 — Discover
             </p>
             <h2 className="font-display mt-2 text-[22px] font-semibold">
@@ -121,7 +121,7 @@ function Landing() {
               ].map(([names, cat]) => (
                 <div
                   key={cat}
-                  className="flex items-center justify-between rounded-xl bg-secondary px-4 py-3"
+                  className="flex items-center justify-between rounded-md bg-secondary px-4 py-3"
                 >
                   <span className="text-[13px] font-medium text-foreground">
                     {names}
@@ -132,7 +132,7 @@ function Landing() {
             </div>
           </div>
 
-          <div className="glass animate-rise rounded-[24px] p-7 [animation-delay:160ms]">
+          <div className="glass animate-rise rounded-lg p-7 [animation-delay:160ms]">
             <p className="text-[12px] font-medium tracking-[0.15em] text-accent uppercase">
               Pillar 02 — Document
             </p>
@@ -152,7 +152,7 @@ function Landing() {
               ].map(([title, meta]) => (
                 <div
                   key={title}
-                  className="flex items-center justify-between rounded-xl bg-secondary px-4 py-3"
+                  className="flex items-center justify-between rounded-md bg-secondary px-4 py-3"
                 >
                   <span className="text-[13px] font-medium text-foreground">
                     {title}
@@ -163,7 +163,7 @@ function Landing() {
             </div>
             <Link
               to="/scrapbook"
-              className="mt-5 inline-block rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
+              className="mt-5 inline-block rounded-md border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
             >
               Open the scrapbook →
             </Link>
@@ -171,7 +171,7 @@ function Landing() {
         </section>
 
         {/* How it works */}
-        <section className="glass animate-rise mt-6 rounded-[24px] p-7 [animation-delay:240ms]">
+        <section className="glass animate-rise mt-6 rounded-lg p-7 [animation-delay:240ms]">
           <h2 className="font-display text-[20px] font-semibold">The loop</h2>
           <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
             {[
@@ -180,8 +180,8 @@ function Landing() {
               ["03", "Participate", "Apply, compete, build, volunteer, show up."],
               ["04", "Document", "Add it to your scrapbook and showcase your story."],
             ].map(([num, title, body]) => (
-              <div key={num} className="rounded-2xl bg-secondary p-5">
-                <p className="font-display text-[12px] font-semibold text-primary">
+              <div key={num} className="rounded-lg bg-secondary p-5">
+                <p className="font-display text-[12px] font-semibold text-accent">
                   {num}
                 </p>
                 <p className="font-display mt-1 text-[15px] font-semibold text-foreground">

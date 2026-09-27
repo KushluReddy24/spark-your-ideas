@@ -33,7 +33,7 @@ export const Route = createFileRoute("/opportunity/$id")({
         </h1>
         <Link
           to="/explore" search={{ q: "", category: "", stream: "", type: "", status: "" }}
-          className="mt-4 inline-block rounded-xl bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground"
+          className="mt-4 inline-block rounded-md bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground"
         >
           Back to explore
         </Link>
@@ -52,7 +52,7 @@ function Field({
   unverified?: boolean;
 }) {
   return (
-    <div className="rounded-xl bg-secondary p-4">
+    <div className="rounded-md bg-secondary p-4">
       <p className="text-[10px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
         {label}
       </p>
@@ -86,7 +86,7 @@ function OpportunityDetail() {
             ← Back to explore
           </Link>
 
-          <div className="glass-strong animate-rise mt-4 rounded-[28px] p-8">
+          <div className="glass-strong animate-rise mt-4 rounded-lg p-8">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
                 <div className="flex flex-wrap items-center gap-2">
@@ -107,10 +107,10 @@ function OpportunityDetail() {
               </div>
               <button
                 onClick={() => toggleSaved(o.id)}
-                className={`rounded-xl px-5 py-2.5 text-[13px] font-semibold transition-transform hover:-translate-y-0.5 ${
+                className={`rounded-md px-5 py-2.5 text-[13px] font-semibold transition-transform hover:-translate-y-0.5 ${
                   isSaved
                     ? "border border-accent/40 bg-accent/10 text-accent"
-                    : "bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] text-primary-foreground"
+                    : "bg-primary text-primary-foreground"
                 }`}
               >
                 {isSaved ? "Saved ✓" : "Save opportunity"}
@@ -118,7 +118,7 @@ function OpportunityDetail() {
             </div>
 
             {!o.verified && (
-              <p className="mt-6 rounded-xl border border-amber/30 bg-amber/10 px-4 py-3 text-[12px] text-amber">
+              <p className="mt-6 rounded-md border border-amber/30 bg-amber/10 px-4 py-3 text-[12px] text-amber">
                 ⚠ Some details below still need verification against the
                 official website. We never invent dates, fees or eligibility.
               </p>
@@ -156,7 +156,7 @@ function OpportunityDetail() {
                   ["Preparation required", o.preparation_needed],
                 ] as const
               ).map(([label, body]) => (
-                <div key={label} className="rounded-xl bg-secondary p-5">
+                <div key={label} className="rounded-md bg-secondary p-5">
                   <p className="text-[10px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
                     {label}
                   </p>
@@ -173,7 +173,7 @@ function OpportunityDetail() {
                   href={o.official_link}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
+                  className="rounded-md border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
                 >
                   Official website ↗
                 </a>

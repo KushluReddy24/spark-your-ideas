@@ -42,10 +42,10 @@ function Showcase() {
         <SiteHeader />
 
         {/* Profile header */}
-        <section className="glass-strong animate-rise mt-8 rounded-[28px] p-8">
+        <section className="glass-strong animate-rise mt-8 rounded-lg p-8">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex items-center gap-5">
-              <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-accent font-display text-[22px] font-bold text-primary-foreground">
+              <div className="grid h-16 w-16 place-items-center rounded-lg bg-primary font-display text-[22px] font-bold text-primary-foreground">
                 S
               </div>
               <div>
@@ -67,7 +67,7 @@ function Showcase() {
             </div>
             <Link
               to="/scrapbook"
-              className="rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
+              className="rounded-md border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
             >
               Edit in scrapbook
             </Link>
@@ -81,7 +81,7 @@ function Showcase() {
 
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Featured achievements */}
-          <div className="glass animate-rise rounded-[24px] p-6 lg:col-span-2 [animation-delay:80ms]">
+          <div className="glass animate-rise rounded-lg p-6 lg:col-span-2 [animation-delay:80ms]">
             <h2 className="font-display text-[16px] font-semibold">
               Featured achievements
             </h2>
@@ -90,7 +90,7 @@ function Showcase() {
                 <EntryCard key={e.id} entry={e} />
               ))}
               {entries.length === 0 && (
-                <p className="col-span-full rounded-xl bg-secondary p-6 text-[13px] text-muted-foreground">
+                <p className="col-span-full rounded-md bg-secondary p-6 text-[13px] text-muted-foreground">
                   Nothing public yet — add memories in the scrapbook.
                 </p>
               )}
@@ -99,7 +99,7 @@ function Showcase() {
 
           {/* Skills + interests + opportunities */}
           <div className="space-y-6">
-            <div className="glass animate-rise rounded-[24px] p-6 [animation-delay:120ms]">
+            <div className="glass animate-rise rounded-lg p-6 [animation-delay:120ms]">
               <h2 className="font-display text-[16px] font-semibold">Skills</h2>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {skills.map((s) => (
@@ -117,7 +117,7 @@ function Showcase() {
                 )}
               </div>
             </div>
-            <div className="glass animate-rise rounded-[24px] p-6 [animation-delay:160ms]">
+            <div className="glass animate-rise rounded-lg p-6 [animation-delay:160ms]">
               <h2 className="font-display text-[16px] font-semibold">
                 Opportunities participated in
               </h2>
@@ -125,7 +125,7 @@ function Showcase() {
                 {participated.map((o) => (
                   <div
                     key={o.id}
-                    className="flex items-center gap-2 rounded-xl bg-secondary px-3 py-2.5 text-[12px] text-foreground"
+                    className="flex items-center gap-2 rounded-md bg-secondary px-3 py-2.5 text-[12px] text-foreground"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                     {o.name}
@@ -142,12 +142,12 @@ function Showcase() {
         </div>
 
         {/* Journey */}
-        <section className="glass animate-rise mt-6 rounded-[24px] p-7 [animation-delay:200ms]">
+        <section className="glass animate-rise mt-6 rounded-lg p-7 [animation-delay:200ms]">
           <h2 className="font-display text-[16px] font-semibold">My journey</h2>
           <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {timeline.map(([month, items]) => (
               <div key={month}>
-                <p className="text-[11px] font-medium tracking-[0.15em] text-primary uppercase">
+                <p className="text-[11px] font-medium tracking-[0.15em] text-accent uppercase">
                   {month}
                 </p>
                 <div className="mt-2 space-y-2 border-l border-border pl-4">

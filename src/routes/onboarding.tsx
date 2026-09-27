@@ -168,7 +168,7 @@ function Onboarding() {
         <SiteHeader />
 
         <div className="mx-auto mt-14 max-w-2xl">
-          <div className="glass animate-rise rounded-[24px] p-8">
+          <div className="glass animate-rise rounded-lg p-8">
             <p className="text-[12px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
               Onboarding · step {step + 1} of {STEPS.length}
             </p>
@@ -213,14 +213,14 @@ function Onboarding() {
               <button
                 onClick={() => setStep((s) => Math.max(0, s - 1))}
                 disabled={step === 0}
-                className="rounded-xl border border-border px-5 py-2.5 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-40"
+                className="rounded-md border border-border px-5 py-2.5 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-40"
               >
                 Back
               </button>
               <button
                 onClick={() => (isLast ? finish() : setStep((s) => s + 1))}
                 disabled={!canContinue}
-                className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-6 py-2.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-40"
+                className="rounded-md bg-primary px-6 py-2.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-40"
               >
                 {isLast ? "Build my map →" : "Continue"}
               </button>
