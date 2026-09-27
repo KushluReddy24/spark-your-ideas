@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { EntryCard } from "@/components/EntryCard";
 import { groupByMonth, useEntries } from "@/data/scrapbook";
 import { OPPORTUNITIES } from "@/data/opportunities";
-import { loadProfile, useSaved } from "@/lib/profile";
+import { useProfile, useSaved } from "@/lib/profile";
 
 export const Route = createFileRoute("/showcase")({
   head: () => ({
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/showcase")({
 });
 
 function Showcase() {
-  const profile = loadProfile();
+  const profile = useProfile();
   const entries = useEntries().filter((e) => e.isPublic);
   const saved = useSaved();
   const participated = OPPORTUNITIES.filter((o) => saved.includes(o.id));
@@ -42,7 +42,7 @@ function Showcase() {
         <SiteHeader />
 
         {/* Profile header */}
-        <section className="animate-rise mt-8 rounded-lg border border-border bg-card p-8">
+        <section className="animate-rise mt-8 border-b border-border pb-8">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex items-center gap-5">
               <div className="grid h-16 w-16 place-items-center rounded-lg bg-primary font-display text-[22px] font-bold text-primary-foreground">
@@ -81,7 +81,7 @@ function Showcase() {
 
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Featured achievements */}
-          <div className="animate-rise rounded-lg border border-border bg-card p-6 lg:col-span-2 [animation-delay:80ms]">
+          <div className="animate-rise lg:col-span-2 [animation-delay:80ms]">
             <h2 className="font-display text-[16px] font-semibold">
               Featured achievements
             </h2>
@@ -99,7 +99,7 @@ function Showcase() {
 
           {/* Skills + interests + opportunities */}
           <div className="space-y-6">
-            <div className="animate-rise rounded-lg border border-border bg-card p-6 [animation-delay:120ms]">
+            <div className="animate-rise border-t border-border pt-6 [animation-delay:120ms]">
               <h2 className="font-display text-[16px] font-semibold">Skills</h2>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {skills.map((s) => (
@@ -117,7 +117,7 @@ function Showcase() {
                 )}
               </div>
             </div>
-            <div className="animate-rise rounded-lg border border-border bg-card p-6 [animation-delay:160ms]">
+            <div className="animate-rise border-t border-border pt-6 [animation-delay:160ms]">
               <h2 className="font-display text-[16px] font-semibold">
                 Opportunities participated in
               </h2>
@@ -142,7 +142,7 @@ function Showcase() {
         </div>
 
         {/* Journey */}
-        <section className="animate-rise mt-6 rounded-lg border border-border bg-card p-7 [animation-delay:200ms]">
+        <section className="animate-rise mt-6 border-t border-border py-7 [animation-delay:200ms]">
           <h2 className="font-display text-[16px] font-semibold">My journey</h2>
           <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {timeline.map(([month, items]) => (

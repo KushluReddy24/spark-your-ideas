@@ -8,7 +8,7 @@ import {
   STAGE_LABELS,
   type Stage,
 } from "@/data/opportunities";
-import { loadProfile, useSaved } from "@/lib/profile";
+import { useProfile, useSaved } from "@/lib/profile";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -41,7 +41,7 @@ const STAGE_ACCENT: Record<Stage, string> = {
 };
 
 function Dashboard() {
-  const profile = loadProfile();
+  const profile = useProfile();
   const saved = useSaved();
   const savedOpps = OPPORTUNITIES.filter((o) => saved.includes(o.id));
 
@@ -55,7 +55,7 @@ function Dashboard() {
         <SiteHeader />
 
         {/* Greeting */}
-        <section className="animate-rise mt-8 rounded-lg border border-border bg-card p-8">
+        <section className="animate-rise mt-8 border-b border-border pb-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-accent/30 bg-accent/10 px-3 py-1.5 text-[12px] font-medium text-accent">
@@ -137,7 +137,7 @@ function Dashboard() {
 
         {/* Saved + Prepare now */}
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div className="animate-rise rounded-lg border border-border bg-card p-6 lg:col-span-2 [animation-delay:120ms]">
+          <div className="animate-rise lg:col-span-2 [animation-delay:120ms]">
             <div className="flex items-center justify-between">
               <h2 className="font-display text-[16px] font-semibold">
                 Prepare now
@@ -155,7 +155,7 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="animate-rise rounded-lg border border-border bg-card p-6 [animation-delay:200ms]">
+          <div className="animate-rise border-t border-border pt-6 [animation-delay:200ms]">
             <div className="flex items-center justify-between">
               <h2 className="font-display text-[16px] font-semibold">
                 Saved opportunities
@@ -192,7 +192,7 @@ function Dashboard() {
         </div>
 
         {/* Explore more */}
-        <section className="animate-rise mt-6 rounded-lg border border-border bg-card p-6 [animation-delay:280ms]">
+        <section className="animate-rise mt-6 border-t border-border pt-6 [animation-delay:280ms]">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-[16px] font-semibold">
               Explore more

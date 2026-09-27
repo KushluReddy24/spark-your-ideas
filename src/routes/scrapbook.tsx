@@ -209,7 +209,7 @@ function Scrapbook() {
           </div>
 
           {/* Journey timeline */}
-          <aside className="h-fit rounded-lg border border-border bg-card p-6 lg:sticky lg:top-24">
+          <aside className="h-fit border-t-4 border-primary py-6 lg:sticky lg:top-24">
             <h2 className="font-display text-[16px] font-semibold">
               Your journey
             </h2>
