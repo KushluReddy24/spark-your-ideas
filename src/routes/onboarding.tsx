@@ -80,7 +80,7 @@ interface Step {
   set: (p: StudentProfile, values: (string | number)[]) => StudentProfile;
 }
 
-const STEPS: Step[] = [
+const STEPS: [Step, ...Step[]] = [
   {
     title: "Which class are you in?",
     hint: "V1 is tuned for Class 11, with Class 12 support.",
