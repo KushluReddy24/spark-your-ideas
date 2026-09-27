@@ -168,14 +168,18 @@ function OpportunityDetail() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
-              <a
-                href={o.official_link}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
-              >
-                Official website ↗
-              </a>
+              {o.official_link ? (
+                <a
+                  href={o.official_link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
+                >
+                  Official website ↗
+                </a>
+              ) : (
+                <span className="text-[12px] text-amber">Official link needs verification</span>
+              )}
               <p className="text-[11px] text-muted-foreground">
                 Last verified: {o.last_verified ?? "Never — verify before acting"}
               </p>
