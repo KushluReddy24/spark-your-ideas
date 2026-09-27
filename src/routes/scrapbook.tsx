@@ -33,7 +33,7 @@ export const Route = createFileRoute("/scrapbook")({
 });
 
 const inputCls =
-  "glass w-full rounded-md bg-transparent px-4 py-2.5 text-[13px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary/50";
+  "w-full border border-border bg-card rounded-md bg-transparent px-4 py-2.5 text-[13px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary/50";
 
 function Scrapbook() {
   const entries = useEntries();
@@ -117,7 +117,7 @@ function Scrapbook() {
         </div>
 
         {showForm && (
-          <div className="glass animate-rise mb-8 rounded-lg p-7">
+          <div className="animate-rise mb-8 rounded-lg border border-border bg-card p-7">
             <h2 className="font-display text-[18px] font-semibold">
               New memory
             </h2>
@@ -202,14 +202,14 @@ function Scrapbook() {
               <EntryCard key={e.id} entry={e} />
             ))}
             {entries.length === 0 && (
-              <div className="glass col-span-full rounded-lg p-10 text-center text-[13px] text-muted-foreground">
+              <div className="col-span-full rounded-lg border border-border bg-card p-10 text-center text-[13px] text-muted-foreground">
                 No memories yet — add your first one.
               </div>
             )}
           </div>
 
           {/* Journey timeline */}
-          <aside className="glass h-fit rounded-lg p-6 lg:sticky lg:top-24">
+          <aside className="h-fit rounded-lg border border-border bg-card p-6 lg:sticky lg:top-24">
             <h2 className="font-display text-[16px] font-semibold">
               Your journey
             </h2>

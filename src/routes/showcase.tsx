@@ -42,14 +42,14 @@ function Showcase() {
         <SiteHeader />
 
         {/* Profile header */}
-        <section className="glass-strong animate-rise mt-8 rounded-lg p-8">
+        <section className="animate-rise mt-8 rounded-lg border border-border bg-card p-8">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex items-center gap-5">
               <div className="grid h-16 w-16 place-items-center rounded-lg bg-primary font-display text-[22px] font-bold text-primary-foreground">
                 S
               </div>
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-medium text-accent">
+                <div className="inline-flex items-center gap-2 rounded-md border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-medium text-accent">
                   <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
                   Public showcase
                 </div>
@@ -81,7 +81,7 @@ function Showcase() {
 
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Featured achievements */}
-          <div className="glass animate-rise rounded-lg p-6 lg:col-span-2 [animation-delay:80ms]">
+          <div className="animate-rise rounded-lg border border-border bg-card p-6 lg:col-span-2 [animation-delay:80ms]">
             <h2 className="font-display text-[16px] font-semibold">
               Featured achievements
             </h2>
@@ -99,7 +99,7 @@ function Showcase() {
 
           {/* Skills + interests + opportunities */}
           <div className="space-y-6">
-            <div className="glass animate-rise rounded-lg p-6 [animation-delay:120ms]">
+            <div className="animate-rise rounded-lg border border-border bg-card p-6 [animation-delay:120ms]">
               <h2 className="font-display text-[16px] font-semibold">Skills</h2>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {skills.map((s) => (
@@ -117,7 +117,7 @@ function Showcase() {
                 )}
               </div>
             </div>
-            <div className="glass animate-rise rounded-lg p-6 [animation-delay:160ms]">
+            <div className="animate-rise rounded-lg border border-border bg-card p-6 [animation-delay:160ms]">
               <h2 className="font-display text-[16px] font-semibold">
                 Opportunities participated in
               </h2>
@@ -142,7 +142,7 @@ function Showcase() {
         </div>
 
         {/* Journey */}
-        <section className="glass animate-rise mt-6 rounded-lg p-7 [animation-delay:200ms]">
+        <section className="animate-rise mt-6 rounded-lg border border-border bg-card p-7 [animation-delay:200ms]">
           <h2 className="font-display text-[16px] font-semibold">My journey</h2>
           <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {timeline.map(([month, items]) => (

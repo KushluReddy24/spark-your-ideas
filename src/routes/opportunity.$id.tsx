@@ -86,15 +86,15 @@ function OpportunityDetail() {
             ← Back to explore
           </Link>
 
-          <div className="glass-strong animate-rise mt-4 rounded-lg p-8">
+          <div className="animate-rise mt-4 rounded-lg border border-border bg-card p-8">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <StageBadge stage={o.stage} />
-                  <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
+                  <span className="rounded-md border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
                     {o.category}
                   </span>
-                  <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
+                  <span className="rounded-md border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
                     {o.opportunity_type}
                   </span>
                 </div>

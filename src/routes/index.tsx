@@ -129,9 +129,9 @@ function Landing() {
             </p>
             <div className="mt-5 space-y-2.5">
               {[
-                ["Built my first website", "Technology · Aug 2026"],
-                ["Won inter-school debate", "Communication · Jun 2026"],
-                ["Started volunteering initiative", "Community · Sep 2026"],
+                ["Built my first website", "Technology"],
+                ["Won inter-school debate", "Communication"],
+                ["Started volunteering initiative", "Community"],
               ].map(([title, meta]) => (
                 <div
                   key={title}

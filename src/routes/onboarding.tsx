@@ -168,7 +168,7 @@ function Onboarding() {
         <SiteHeader />
 
         <div className="mx-auto mt-14 max-w-2xl">
-          <div className="glass animate-rise rounded-lg p-8">
+          <div className="animate-rise rounded-lg border border-border bg-card p-8">
             <p className="text-[12px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
               Onboarding · step {step + 1} of {STEPS.length}
             </p>
