@@ -7,6 +7,7 @@ import {
   STREAMS,
 } from "@/data/opportunities";
 import { saveProfile, type StudentProfile } from "@/lib/profile";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/onboarding")({
   head: () => ({
@@ -142,7 +143,7 @@ function Onboarding() {
     opportunityTypes: [],
   });
 
-  const current = STEPS[step]!;
+  const current = STEPS[step] ?? STEPS[0];
   const selected = current.get(profile);
   const isLast = step === STEPS.length - 1;
   const canContinue = selected.length > 0;
@@ -194,36 +195,39 @@ function Onboarding() {
               {current.options.map((option) => {
                 const active = selected.includes(option);
                 return (
-                  <button
+                  <Button
+                    type="button"
+                    variant="outline"
                     key={String(option)}
                     onClick={() => toggle(option)}
-                    className={`rounded-full px-4 py-2 text-[13px] font-medium transition-colors ${
+                    className={`h-auto min-h-9 whitespace-normal rounded-md px-4 py-2 text-[13px] font-medium transition-colors ${
                       active
-                        ? "bg-foreground text-background"
-                        : "border border-border bg-secondary text-muted-foreground hover:text-foreground"
+                        ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
+                        : "border-border bg-secondary text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {String(option)}
-                  </button>
+                  </Button>
                 );
               })}
             </div>
 
             <div className="mt-8 flex items-center justify-between">
-              <button
+              <Button
+                variant="outline"
                 onClick={() => setStep((s) => Math.max(0, s - 1))}
                 disabled={step === 0}
-                className="rounded-md border border-border px-5 py-2.5 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-40"
+                className="h-10 border-border px-5 text-[13px] text-muted-foreground hover:text-foreground"
               >
                 Back
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => (isLast ? finish() : setStep((s) => s + 1))}
                 disabled={!canContinue}
-                className="rounded-md bg-primary px-6 py-2.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-40"
+                className="h-10 px-6 text-[13px] font-semibold"
               >
                 {isLast ? "Build my map →" : "Continue"}
-              </button>
+              </Button>
             </div>
           </div>
         </div>

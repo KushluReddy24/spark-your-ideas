@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { SiteHeader } from "@/components/SiteHeader";
-import { StageBadge } from "@/components/StageBadge";
 import { CATEGORIES, OPPORTUNITIES } from "@/data/opportunities";
 import heroRadar from "@/assets/hero-radar.jpg";
 
@@ -66,12 +65,6 @@ function Landing() {
                 >
                   Explore opportunities
                 </Link>
-              </div>
-              <div className="mt-7 flex flex-wrap gap-2">
-                <StageBadge stage="explore" />
-                <StageBadge stage="prepare" />
-                <StageBadge stage="apply" />
-                <StageBadge stage="plan" />
               </div>
             </div>
           </div>
