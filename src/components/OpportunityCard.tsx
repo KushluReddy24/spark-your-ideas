@@ -37,7 +37,9 @@ export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
         <div className="rounded-lg bg-secondary p-2">
           <p className="text-muted-foreground">Class</p>
           <p className="mt-0.5 font-medium text-foreground">
-            {opportunity.class.join(", ")}
+            {opportunity.class.length > 2
+              ? `${opportunity.class[0]}–${opportunity.class[opportunity.class.length - 1]}`
+              : opportunity.class.join(", ")}
           </p>
         </div>
       </div>
