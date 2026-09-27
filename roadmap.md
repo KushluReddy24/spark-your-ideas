@@ -13,3 +13,4 @@
 - [ ] Showcase profile (/showcase) — public portfolio view
 - [ ] Head metadata on all routes
 - [ ] Verify build + preview
+- [ ] Redesign Explore and shared styling to Electric contrast grid; verify desktop and mobile

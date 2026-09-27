@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Opportunity Radar — "Frosted Glass Luminous" design system.
- * Dark luminous surface, violet primary, mint accent, frosted-glass panels.
+ * Opportunity Radar — Electric contrast grid.
+ * Ink navigation, light reading surfaces, lime actions and teal supporting type.
  */
 
 @theme inline {
@@ -40,35 +40,39 @@
   --color-mint: var(--mint);
   --color-rose: var(--rose);
   --color-amber: var(--amber);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 1rem;
-  --background: oklch(0.13 0.012 285);
-  --foreground: oklch(0.97 0.005 285);
-  --card: oklch(1 0 0 / 4%);
-  --card-foreground: oklch(0.97 0.005 285);
-  --popover: oklch(0.17 0.015 285);
-  --popover-foreground: oklch(0.97 0.005 285);
-  --primary: oklch(0.585 0.19 285);
-  --primary-foreground: oklch(0.13 0.012 285);
-  --secondary: oklch(1 0 0 / 6%);
-  --secondary-foreground: oklch(0.97 0.005 285);
-  --muted: oklch(1 0 0 / 6%);
-  --muted-foreground: oklch(0.72 0.02 285);
-  --accent: oklch(0.85 0.16 165);
-  --accent-foreground: oklch(0.13 0.012 285);
-  --destructive: oklch(0.67 0.2 350);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.585 0.19 285);
-  --brand: oklch(0.585 0.19 285);
-  --mint: oklch(0.85 0.16 165);
-  --rose: oklch(0.67 0.2 350);
-  --amber: oklch(0.8 0.15 85);
+  --radius: 0.5rem;
+  --background: #F2F5EE;
+  --foreground: #151918;
+  --card: #FFFFFF;
+  --card-foreground: #151918;
+  --popover: #FFFFFF;
+  --popover-foreground: #151918;
+  --primary: #B6E94E;
+  --primary-foreground: #151918;
+  --secondary: #E6EDE7;
+  --secondary-foreground: #151918;
+  --muted: #E6EDE7;
+  --muted-foreground: #3F6865;
+  --accent: #3F6865;
+  --accent-foreground: #FFFFFF;
+  --destructive: #A83E47;
+  --destructive-foreground: #FFFFFF;
+  --border: #CCD9D2;
+  --input: #CCD9D2;
+  --ring: #3F6865;
+  --brand: #B6E94E;
+  --mint: #3F6865;
+  --rose: #A83E47;
+  --amber: #916200;
+  --ink: #151918;
+  --ink-foreground: #F2F5EE;
 }
 
 @layer base {
@@ -83,21 +87,14 @@
   }
 }
 
-/* Frosted glass panel — the signature surface of this design. */
 @utility glass {
-  background: oklch(1 0 0 / 4%);
-  border: 1px solid oklch(1 0 0 / 10%);
-  backdrop-filter: blur(24px);
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 @utility glass-strong {
-  background: linear-gradient(
-    135deg,
-    oklch(1 0 0 / 7%),
-    oklch(1 0 0 / 2%)
-  );
-  border: 1px solid oklch(1 0 0 / 10%);
-  backdrop-filter: blur(24px);
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 @keyframes drift {
@@ -154,4 +151,8 @@
 
 @utility animate-rise {
   animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

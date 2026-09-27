@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { hasProfile } from "@/lib/profile";
 
 const NAV = [
@@ -7,15 +8,25 @@ const NAV = [
 ] as const;
 
 export function SiteHeader() {
-  const profiled = typeof window !== "undefined" && hasProfile();
+  const [profiled, setProfiled] = useState(false);
+  useEffect(() => {
+    const refresh = () => setProfiled(hasProfile());
+    refresh();
+    window.addEventListener("or:storage", refresh);
+    window.addEventListener("storage", refresh);
+    return () => {
+      window.removeEventListener("or:storage", refresh);
+      window.removeEventListener("storage", refresh);
+    };
+  }, []);
 
   return (
-    <header className="glass sticky top-4 z-50 mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-6 py-4">
+    <header className="sticky top-0 z-50 mx-auto flex max-w-6xl items-center justify-between gap-4 border-b border-border bg-card px-4 py-4 sm:px-6">
       <Link to="/" className="flex items-center gap-3">
-        <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent text-[15px] font-bold text-primary-foreground">
+        <div className="grid h-9 w-9 place-items-center rounded-md bg-primary text-[15px] font-bold text-primary-foreground">
           ◈
         </div>
-        <span className="font-display text-[15px] font-semibold tracking-tight">
+        <span className="font-display text-[13px] font-bold sm:text-[15px]">
           Opportunity Radar
         </span>
       </Link>
@@ -33,7 +44,7 @@ export function SiteHeader() {
       </nav>
       <Link
         to={profiled ? "/dashboard" : "/onboarding"}
-        className="rounded-xl bg-gradient-to-r from-primary to-[oklch(0.66_0.17_285)] px-4 py-2 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+        className="rounded-md bg-primary px-3 py-2 text-[12px] font-bold text-primary-foreground transition-colors hover:bg-foreground hover:text-background sm:px-4 sm:text-[13px]"
       >
         {profiled ? "My map" : "Build my map"}
       </Link>
