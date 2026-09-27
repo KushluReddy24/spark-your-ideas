@@ -56,6 +56,19 @@ export function hasProfile(): boolean {
   return loadProfile().classLevel !== null;
 }
 
+export function useProfile(): StudentProfile {
+  const raw = useSyncExternalStore(
+    subscribe,
+    () => window.localStorage.getItem(PROFILE_KEY) ?? "null",
+    () => "null",
+  );
+  try {
+    return raw === "null" ? EMPTY_PROFILE : JSON.parse(raw) as StudentProfile;
+  } catch {
+    return EMPTY_PROFILE;
+  }
+}
+
 export function loadSaved(): string[] {
   return readJson<string[]>(SAVED_KEY, []);
 }
